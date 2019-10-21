@@ -1,0 +1,135 @@
+#page-background-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#page-header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#page-main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#header-logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#header-search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#header-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#movie-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#main-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#movie-selection-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#movie-box-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#movie-information-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#question-and-answers-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#selection-text-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#selection-search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#movie-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#movie-description-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#website-logo {
+
+}
+
+#header-search-box {
+
+}
+
+#login-button {
+
+}
+
+#signup-button {
+
+}
+
+#home-button {
+
+}
+
+#movie-box {
+
+}
+
+#movie-title {
+
+}
+
+#movie-description {
+
+}
+
+#selection-text {
+
+}
+
+#selection-search {
+
+}
