@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="static/styles/clearflick.css">
   </head>
   <body>
     <div id="page-background-container">
       <div id="page-header-container">
-        <div id="header-logo-container">
+        <div id="header-left-container">
+          <div id="header-logo-container">
+            <img id="website-logo" src="{{ url_for('static', filename='logo.jpg') }}" alt="clearflick logo">
+          </div>
         </div>
-        <div id="header-search-container">
-        </div>
-        <div id="header-button-container">
-          <button class="nav-button-light">LOGIN</button>
-          <button class="nav-button-light">SIGNUP</button>
-          <button class="nav-button-dark">HOME</button>
+        <div id="header-right-container">
+          <div id="header-search-container">
+            <input id="search-field" class="form-control" type="text" placeholder="Search...">
+          </div>
+          <div id="header-button-container">
+            <button class="nav-button-light">LOGIN</button>
+            <button class="nav-button-light">SIGNUP</button>
+            <button class="nav-button-dark">HOME</button>
+          </div>
         </div>
       </div>
       <div id="page-main-container">
@@ -48,5 +57,8 @@
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   </body>
 </html>
