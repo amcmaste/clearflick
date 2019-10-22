@@ -1,3 +1,31 @@
+.nav-button-light {
+  display: inline-block;
+  background-color: hsl(210, 100%, 40%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 9px;
+  text-align: center;
+  font-weight: bold;
+  height: 28px;
+  width: 70px;
+  margin: 2px;
+}
+
+.nav-button-dark {
+  display: inline-block;
+  background-color: hsl(240, 100%, 15%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 9px;
+  text-align: center;
+  font-weight: bold;
+  height: 28px;
+  width: 70px;
+  margin: 2px;
+}
+
 #page-background-container {
   display: flex;
   flex-direction: column;
