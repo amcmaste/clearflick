@@ -1,3 +1,5 @@
+/* main.css */
+
 body {
   display: flex;
   flex-direction: column;
@@ -268,3 +270,112 @@ body {
 #summary-text {
 
 }
+
+/* question.css */
+
+#questions-and-answers-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#questions-general-outer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.question-specific-outer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.question-specific-inner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.question-specific-left-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.question-specific-arrow-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.question-specific-block-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.question-specific-right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.question-specific-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.question-specific-statistics-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.question-specific-statistics-container-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.question-specific-user-id {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.question-specific-post-date {
+  display: inline-block;
+}
+
+.question-specific-statistics-container-right {
+  display: inline-block;
+}
+
+.question-specific-top-question {
+  display: inline-block;
+}
+
+.question-specific-points {
+  display: inline-block;
+}
+
+/* answer.css */
+
