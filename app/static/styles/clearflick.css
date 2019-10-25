@@ -430,6 +430,76 @@ body {
   margin-right: 5px;
 }
 
+.question-buttons-outer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.add-question-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 105px;
+}
+
+.add-button-light {
+  display: inline-block;
+  background-color: hsl(210, 100%, 40%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 10px;
+  text-align: center;
+  font-weight: bold;
+  height: 40px;
+  width: 120px;
+}
+
+.add-button-dark {
+  display: inline-block;
+  background-color: hsl(240, 100%, 15%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 10px;
+  text-align: center;
+  font-weight: bold;
+  height: 40px;
+  width: 120px;
+}
+
+.show-more-questions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.show-button-light {
+  display: inline-block;
+  font-size: 10px;
+  text-align: right;
+  font-weight: bold;
+  height: 40px;
+  width: 100px;
+}
+
+.show-button-dark {
+  display: inline-block;
+  font-size: 10px;
+  text-align: right;
+  font-weight: bold;
+  height: 40px;
+  width: 100px;
+}
+
 /* answer.css */
 
 .answers-general-outer-container {
@@ -576,5 +646,31 @@ body {
   justify-content: flex-start;
   align-items: flex-end;
   margin-left: 10px;
+  margin-right: 5px;
+}
+
+.answer-buttons-outer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.add-answer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 205px;
+}
+
+.show-more-answers-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
   margin-right: 5px;
 }
