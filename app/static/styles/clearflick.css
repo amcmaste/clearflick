@@ -141,14 +141,16 @@ body {
 #movie-box-container {
   display: flex;
   flex-direction: column;
+  padding: 20px;
   justify-content: flex-start;
-  padding: 10px;
+  padding-top: 12px;
 }
 
 #movie-information-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding-right: 10px;
 }
 
 #question-and-answers-container {
