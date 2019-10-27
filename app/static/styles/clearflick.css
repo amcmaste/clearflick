@@ -52,6 +52,8 @@ body {
   justify-content: space-between;
   background-color: white;
   height: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
   width: 100%;
 }
 
@@ -98,7 +100,7 @@ body {
 #header-button-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: right;
   align-items: center;
   margin: 10px;
 }
@@ -109,8 +111,8 @@ body {
   justify-content: flex-start;
   min-height: 100px;
   width: 90%;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 #main-content-container {
@@ -209,7 +211,7 @@ body {
 #search-field {
   display: inline-block;
   height: 30px;
-  margin-left: 4px;
+  margin-left: 20px;
   margin-right: 4px;
   padding-bottom: 8px;
   flex: 1;
@@ -231,6 +233,10 @@ body {
   display: inline-block;
   height: 30px;
   width: 100%;
+}
+
+#logout-button {
+  display: none;
 }
 
 #login-button {
@@ -684,8 +690,8 @@ body {
   align-items: flex-start;
   background-color: white;
   border-radius: 4px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   width: 50%;
 }
 
@@ -724,8 +730,8 @@ body {
   font-size: 9px;
   text-align: center;
   font-weight: bold;
-  height: 28px;
-  width: 70px;
+  height: 34px;
+  width: 90px;
   margin-left: 2px;
   margin-right: 2px;
   margin-top: 15px;
@@ -740,8 +746,8 @@ body {
   font-size: 9px;
   text-align: center;
   font-weight: bold;
-  height: 28px;
-  width: 70px;
+  height: 34px;
+  width: 90px;
   margin-left: 2px;
   margin-right: 2px;
   margin-top: 15px;

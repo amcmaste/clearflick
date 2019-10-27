@@ -24,8 +24,14 @@ $(document).ready(function() {
 		
 	  } else {
         
-      
-	    alert("Your account has been created, you will now be logged in.");
+        $('#popout-container').css('display', 'none');
+        $('#login-form-container').css('display', 'none');
+        $('#signup-form-container').css('display', 'none');
+        $('#login-button').css('display', 'none');
+        $('#signup-button').css('display', 'none');
+        $('#logout-button').css('display', 'inline-block');
+        
+	    alert("Your account has been created and you have been logged in.");
 		
 	  }
 	
