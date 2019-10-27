@@ -113,6 +113,8 @@ body {
   width: 90%;
   margin-top: 30px;
   margin-bottom: 10px;
+  padding-left: 6.5%;
+  padding-right: 6.5%;
 }
 
 #main-content-container {
@@ -124,6 +126,7 @@ body {
   width: 90%;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-radius: 4px;
 }
 
 #movie-selection-container {
@@ -132,12 +135,14 @@ body {
   justify-content: space-between;
   align-items: center;
   background: white;
+  border-radius: 4px;
   min-height: 50px;
   width: 90%;
-  margin-top: 10px;
+  padding: 20px;
+  margin-top: 20px;
   margin-left: 30px;
   margin-right: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 #movie-box-container {
@@ -252,7 +257,7 @@ body {
 }
 
 #movie-box {
-
+  border-radius: 4px;
 }
 
 #movie-title {
@@ -286,6 +291,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding: 20px;
   height: 100%;
   width: 100%;
 }
@@ -690,9 +696,10 @@ body {
   align-items: flex-start;
   background-color: white;
   border-radius: 4px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: 50%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-left: 5%;
+  width: 90%;
 }
 
 #popout-form {
@@ -714,11 +721,11 @@ body {
 }
 
 #login-form-contents {
-  width: 80%;
+  width: 60%;
 }
 
 #signup-form-contents {
-  width: 80%;
+  width: 60%;
 }
 
 #login-submit {
