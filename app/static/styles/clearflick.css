@@ -680,12 +680,84 @@ body {
 #popout-container {
   display: none;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   background-color: white;
+  border-radius: 4px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 50%;
+}
+
+#popout-form {
+  width: 100%;
+}
+
+#login-form-container {
+  margin: 20px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+#signup-form-container {
+  margin: 20px;
+  margin-bottom: 15px;
+  display: none;
+}
+
+#login-form-contents {
+
+}
+
+#signup-form-contents {
+
+}
+
+#login-submit {
+  display: inline-block;
+  background-color: hsl(240, 100%, 15%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 9px;
+  text-align: center;
+  font-weight: bold;
+  height: 28px;
+  width: 70px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 15px;
+}
+
+#signup-submit {
+  display: inline-block;
+  background-color: hsl(240, 100%, 15%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 9px;
+  text-align: center;
+  font-weight: bold;
+  height: 28px;
+  width: 70px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 15px;
+}
+
+.popout-text {
+  padding: 0px;
+  font-size: 18px;
+  font-weight: bold;
+  color: hsl(240, 100%, 15%);
+  text-align: left;
+  margin-left: 20px;
+}
+
+.control-lablel {
+  font-size: 12.5px;
+}
+
+.form {
   padding: 20px;
-  margin-top: 20px;
-  margin-bottom: 0px;
-  width: 90%;
-  height: 400px;
 }

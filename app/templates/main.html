@@ -1,3 +1,5 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,6 +29,20 @@
         </div>
       </div>
       <div id="popout-container">
+        <div id="popout-form">
+          <div id="login-form-container">
+            <div id="login-text">
+              <span class="popout-text">Please Login Below:</span>
+            </div>
+            {{  wtf.quick_form(login, id="login-form-contents") }}
+          </div>
+          <div id="signup-form-container">
+            <div id="singup-text">
+              <span class="popout-text">Please Signup Below:</span>
+            </div>
+            {{  wtf.quick_form(signup, id="signup-form-contents") }}
+          </div>
+        </div>
       </div>
       <div id="page-main-container">
         <div id="movie-container">
