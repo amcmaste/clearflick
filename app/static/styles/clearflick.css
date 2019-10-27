@@ -694,23 +694,25 @@ body {
 }
 
 #login-form-container {
+  width: 100%;
   margin: 20px;
   margin-bottom: 10px;
   display: none;
 }
 
 #signup-form-container {
+  width: 100%;
   margin: 20px;
   margin-bottom: 15px;
   display: none;
 }
 
 #login-form-contents {
-
+  width: 80%;
 }
 
 #signup-form-contents {
-
+  width: 80%;
 }
 
 #login-submit {
