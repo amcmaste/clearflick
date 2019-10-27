@@ -144,7 +144,10 @@
                   </div>
                   <div class="answer-buttons-outer-container">
                     <div class="add-answer-container">
-                      <button class="add-button-light">ADD ANSWER</button>
+                      <button class="add-answer-button">ADD ANSWER</button>
+                      <div class="add-answer-form">
+                        {{  wtf.quick_form(answer)  }}
+                      </div>
                     </div>
                     <div class="show-more-answers-container">
                       <a class="show-button-light">SHOW MORE ANSWERS</a>
@@ -152,94 +155,13 @@
                   </div>
                 </div>
               <!-- END INSERT QUESTION SPECIFIC CONTENT #1 -->
-              <!-- STR INSERT QUESTION SPECIFIC CONTENT #2 -->
-                <div class="question-specific-outer-container">
-                  <div class="question-specific-inner-container">
-                    <div class="question-specific-left-container">
-                      <div class="question-specific-arrow-container">
-                        <i class="fa fa-arrow-circle-up"></i>
-			            <i class="fa fa-arrow-circle-down"></i>
-                      </div>
-                      <div class="question-specific-block-container">
-                        <span>Q</span>
-                      </div>
-                    </div>
-                    <div class="question-specific-right-container">
-                      <div class="question-specific-content-container">
-                        <span>What happened to Gendo in the film?</span>
-                      </div>
-                      <div class="question-specific-statistics-container">
-                        <div class="question-specific-statistics-container-left">
-                          <div class="question-specific-user-id">
-                            <span>Moviefan001</span>
-                          </div>
-                          <div class="question-specific-post-date">
-                            <span>January 21, 2019 @ 10:03am</span>
-                          </div>
-                        </div>
-                        <div class="question-specific-statistics-container-right">
-                          <div class="question-specific-top-question">
-                            <span>TOP QUESTION</span>
-                          </div>
-                          <div class="question-specific-points">
-                            <span>120pts</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="answers-general-outer-container">
-                    <!-- STR INSERT ANSWER SPECIFIC CONTENT -->
-                      <div class="answer-specific-inner-container">
-                        <div class="answer-specific-left-container">
-                          <div class="answer-specific-arrow-container">
-                        <i class="fa fa-arrow-circle-up"></i>
-			            <i class="fa fa-arrow-circle-down"></i>
-                          </div>
-                          <div class="answer-specific-block-container">
-                            <span>A</span>
-                          </div>
-                        </div>
-                        <div class="answer-specific-right-container">
-                          <div class="answer-specific-content-container">
-                            <span>Gendo more than likely entered into Human Complement Project just like everyone. The scene of the film with Gendo being bitten in half by a ghost/demon Eva-01 is too surreal to be reality. Rei is a part of Lilith. Yui is dead and her soul is in Eva-01, Kaworu is dead. Eva-01 is in orbit around the earth. None of those people could actually be there with Gendo. Therefore, they are a figment of Human Complement Project and of Gendo's mind. Either this scene is of Gendo already being Complemented or Gendo's method of reversion to LCL is simply more violent and guilt ridden than others. Either way, Gendo is to be Complemented. Gendo was reverted to LCL and became part of the whole with everyone else. As the Cardass Masters Card says, " All life was drawn indiscriminately into the world desired by the medium/avatar Shinji." With Shinji's request, "I wish everyone would just die.", the anti AT Field spread from Lilith. It was an "indiscriminate" effect that bound everyone together at Shinji's will. All life was to become one, Gendo included.</span>
-                          </div>
-                          <div class="answer-specific-statistics-container">
-                            <div class="answer-specific-statistics-container-left">
-                              <div class="answer-specific-user-id">
-                                <span>Moviefan002</span>
-                              </div>
-                              <div class="answer-specific-post-date">
-                                <span>January 24, 2019 @ 11:15am</span>
-                              </div>
-                            </div>
-                            <div class="answer-specific-statistics-container-right">
-                              <div class="answer-specific-top-answer">
-                                <span>TOP ANSWER</span>
-                              </div>
-                              <div class="answer-specific-points">
-                                <span>80pts</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    <!-- END INSERT ANSWER SPECIFIC CONTENT -->
-                  </div>
-                  <div class="answer-buttons-outer-container">
-                    <div class="add-answer-container">
-                      <button class="add-button-light">ADD ANSWER</button>
-                    </div>
-                    <div class="show-more-answers-container">
-                      <a class="show-button-light">SHOW MORE ANSWERS</a>
-                    </div>
-                  </div>
-                </div>
-              <!-- END INSERT QUESTION SPECIFIC CONTENT #2 -->
             </div>
             <div class="question-buttons-outer-container">
               <div class="add-question-container">
-                <button class="add-button-dark">ADD QUESTION</button>
+                <button id="add-question-button" class="add-button-dark">ADD QUESTION</button>
+                <div id="add-question-form" class="d-none">
+                  {{  wtf.quick_form(question, id="question-form-contents")  }}
+                </div>
               </div>
               <div class="show-more-questions-container">
                 <a class="show-button-dark">SHOW MORE QUESTIONS</a>
@@ -265,5 +187,6 @@
     <script type=text/javascript src="{{ url_for('static', filename='login.js') }}"></script>
     <script type=text/javascript src="{{ url_for('static', filename='logout.js') }}"></script>
     <script type=text/javascript src="{{ url_for('static', filename='movie.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='add-question.js') }}"></script>
   </body>
 </html>

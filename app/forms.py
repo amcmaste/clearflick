@@ -15,3 +15,11 @@ class SignupForm(FlaskForm):
 	email = EmailField('Email', id="email", validators=[DataRequired(), Email()])
 	password = PasswordField('Password', id="signup-password", validators=[DataRequired()])
 	signup_submit = SubmitField('SUBMIT', id="signup-submit")
+    
+class QuestionForm(FlaskForm):
+	question = TextAreaField('Add Question', id="question-field", validators=[DataRequired()])
+	question_submit = SubmitField('SUBMIT', id="question-submit")
+	
+class AnswerForm(FlaskForm):
+	answer = TextAreaField('Add Answer', id="answer-field", validators=[DataRequired()])
+	answer_submit = SubmitField('SUBMIT', id="answer-submit")
