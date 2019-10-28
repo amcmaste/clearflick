@@ -1,5 +1,6 @@
 #Imports
 import os
+import requests
 from flask import render_template, request, redirect, url_for, jsonify
 from flask_login import current_user, login_user, logout_user
 from sqlalchemy import desc
@@ -12,7 +13,10 @@ from app import db
 #Route defintions
 @app.route('/', methods=['GET', 'POST'])
 def main():
-	return render_template('main.html', login=LoginForm(), signup=SignupForm(), question=QuestionForm(), answer=AnswerForm())
+    movie = request.args.get('movie')
+    url = 'https://www.omdbapi.com/?apikey=227f7057&t=' + movie
+    data = requests.get(url).json()
+    return render_template('main.html', data=data, login=LoginForm(), signup=SignupForm(), question=QuestionForm(), answer=AnswerForm())
     
 @app.route('/register', methods=['GET', 'POST'])
 def register():
