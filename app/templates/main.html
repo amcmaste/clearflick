@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="static/styles/clearflick.css">
   </head>
@@ -48,113 +48,21 @@
       <div id="page-main-container">
         <div id="movie-container">
           <div id="movie-box-container">
-            <!-- STR INSERT MOVIE BOX -->
-              <img id="movie-box" src="{{ url_for('static', filename='cover.jpg') }}" alt="movie cover" height="275" width="180"/>
-            <!-- END INSERT MOVIE BOX -->
+              <img id="movie-box" src="{{ data.Poster }}" alt="movie cover" height="275" width="180"/>
           </div>
           <div id="movie-information-container">
             <div id="movie-title-container">
-              <!-- STR INSERT MOVIE TITLE -->
-                <span id="title-text">NEON GENESIS EVANGELION: THE END OF EVANGELION</span>
-              <!-- END INSERT MOVIE TITLE -->
+                <span id="title-text">{{ data.Title }}</span>
             </div>
             <div id="movie-description-container">
-              <!-- STR INSERT MOVIE SUMMARY -->
-                <span id="summary-text"/>With the defeat of the final Angel, Gendo Ikari turns on the Seele organization, each of them wanting to initiate Third Impact under their own control. Through Seele's control of the United Nations, it orders a massive leave-no-survivors assault on Tokyo-3 by the JSSDF, who clear through the personal of NERV quickly and efficiently. Asuka, piloting Eva-02, is able to repulse the JSSDF, motivating Seele to deploy the nine Mass Production model Evangelions against Eva-02. After a titanic battle, Eva-02 is destroyed, killing Asuka. Meanwhile, Misato fights her way through the JSSDF's invasion of Nerv HQ to bring Shinji to Eva-01, dying moments after getting Shinji to safety. Rei merges with embryonic Adam and then Lilith, rejecting Gendo, and instigates Third Impact and Instrumentality using Eva-01, the Mass Production Evangelions, and the Spear of Longinus. After examining his life's meaning with Rei/Lilith, Shinji decides to reject Instrumentality, and return to the world even though that means being hurt. Sometime later, Shinji wakes up on the beach of the Sea of LCL formed by Instrumentality, and finds Asuka alive next to him.</span>
-              <!-- END INSERT MOVIE SUMMARY -->
+                <span id="summary-text"/>{{ data.Plot }}</span>
             </div>
           </div>
         </div>
         <div id="main-content-container">
           <div id="questions-and-answers-container">
             <div id="questions-general-outer-container">
-              <!-- STR INSERT QUESTION SPECIFIC CONTENT #1 -->
-                <div class="question-specific-outer-container">
-                  <div class="question-specific-inner-container">
-                    <div class="question-specific-left-container">
-                      <div class="question-specific-arrow-container">
-                        <i class="fa fa-arrow-circle-up"></i>
-			            <i class="fa fa-arrow-circle-down"></i>
-                      </div>
-                      <div class="question-specific-block-container">
-                        <span>Q</span>
-                      </div>
-                    </div>
-                    <div class="question-specific-right-container">
-                      <div class="question-specific-content-container">
-                        <span>What exactly happened in The End of Evangelion? </span>
-                      </div>
-                      <div class="question-specific-statistics-container">
-                        <div class="question-specific-statistics-container-left">
-                          <div class="question-specific-user-id">
-                            <span>Moviefan001</span>
-                          </div>
-                          <div class="question-specific-post-date">
-                            <span>January 21, 2019 @ 10:03am</span>
-                          </div>
-                        </div>
-                        <div class="question-specific-statistics-container-right">
-                          <div class="question-specific-top-question">
-                            <span>TOP QUESTION</span>
-                          </div>
-                          <div class="question-specific-points">
-                            <span>120pts</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="answers-general-outer-container">
-                    <!-- STR INSERT ANSWER SPECIFIC CONTENT -->
-                      <div class="answer-specific-inner-container">
-                        <div class="answer-specific-left-container">
-                          <div class="answer-specific-arrow-container">
-                        <i class="fa fa-arrow-circle-up"></i>
-			            <i class="fa fa-arrow-circle-down"></i>
-                          </div>
-                          <div class="answer-specific-block-container">
-                            <span>A</span>
-                          </div>
-                        </div>
-                        <div class="answer-specific-right-container">
-                          <div class="answer-specific-content-container">
-                            <span>This is a severely abbreviated overview of The End of Evangelion that simply touches upon the important aspects and details of the finale. SEELE, believing that mankind had become a colony of worthlessness decided that in order for mankind to be happy, all life needed to die ("God, man, and all life must die in order to become one" -SEELE). In the process, mankind would become one in a single, perfect, being. This is the Human Complement Project . Gendo had a different scenario for the Complementation of mankind and his process seems to have included the use of Rei, Adam, and Lillith while SEELE's focused on Eva-01 (direct clone of Lillith), Evangelion Mass Production Models and the Spear of Longinuss (at first intended for the original Spear, but the replicas would have sufficed). The SEELE version of Human Complement Project appears to have been initiated with the death of Evangelion Unit-02 and the return of the original Spear with the arrival of Eva-01. With these events occurring in the GeoFront, Gendou gave Adam to Rei (Adam is imbedded in Gendou's hand- this is seen quit clearly in the re-vision of eps. 24) and instructs her to take him to Lillith. However "out of her own judgment" she refused and returned to Lillith alone - then putt the future of mankind into the hands of the son of Ikari, Shinji. When given a choice at the end of Complement Project, if he wanted mankind to return to reality or to complete the project, Shinji decided that a life in reality, no matter how painful, is better than a fake happiness (Kaworu: "AT-Field will harm you and others again, are you sure?" Shinji: "That's fine.") The Mass Production Eva series falls still, their cores break as the Lance Replicas are destroyed. As the souls of mankind flow back to earth, millions of glowing crosses ascend with Eva-01 and the Lance into the depths of space. Yui caresses Shinji's cheek as they they say their final good-byes. In a flashback, Yui's goal for Eva - as a testament that humanity existed even after the sun, moon and earth are gone - becomes clear. Shinji awakes up on a desolate beach. Asuka - her arm and eye bandaged in a manner similar to Rei's - lies motionless next to him. Shinji, at the culmination of his love, hate, stress, frustration, etc. - begins to strangle her, only to stop when he feels the caress of her hand across his face. He breaks down, sobbing on top of her.</span>
-                          </div>
-                          <div class="answer-specific-statistics-container">
-                            <div class="answer-specific-statistics-container-left">
-                              <div class="answer-specific-user-id">
-                                <span>Moviefan002</span>
-                              </div>
-                              <div class="answer-specific-post-date">
-                                <span>January 24, 2019 @ 11:15am</span>
-                              </div>
-                            </div>
-                            <div class="answer-specific-statistics-container-right">
-                              <div class="answer-specific-top-answer">
-                                <span>TOP ANSWER</span>
-                              </div>
-                              <div class="answer-specific-points">
-                                <span>80pts</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    <!-- END INSERT ANSWER SPECIFIC CONTENT -->
-                  </div>
-                  <div class="answer-buttons-outer-container">
-                    <div class="add-answer-container">
-                      <button class="add-answer-button">ADD ANSWER</button>
-                      <div class="add-answer-form">
-                        {{  wtf.quick_form(answer)  }}
-                      </div>
-                    </div>
-                    <div class="show-more-answers-container">
-                      <a class="show-button-light">SHOW MORE ANSWERS</a>
-                    </div>
-                  </div>
-                </div>
-              <!-- END INSERT QUESTION SPECIFIC CONTENT #1 -->
+              <!-- INSERT QUESTION SPECIFIC CONTENT -->
             </div>
             <div class="question-buttons-outer-container">
               <div class="add-question-container">
@@ -180,14 +88,6 @@
       </div>
     </div>
     <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script type=text/javascript src="{{ url_for('static', filename='load.js') }}"></script>
-    <script type=text/javascript src="{{ url_for('static', filename='nav-buttons.js') }}"></script>
-    <script type=text/javascript src="{{ url_for('static', filename='register.js') }}"></script>
-    <script type=text/javascript src="{{ url_for('static', filename='login.js') }}"></script>
-    <script type=text/javascript src="{{ url_for('static', filename='logout.js') }}"></script>
-    <script type=text/javascript src="{{ url_for('static', filename='movie.js') }}"></script>
-    <script type=text/javascript src="{{ url_for('static', filename='add-question.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='search.js') }}"></script>
   </body>
 </html>

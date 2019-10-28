@@ -11,7 +11,7 @@ $(document).ready(function() {
       
         },
         type : 'GET',
-        url : ''
+        url : 'https://www.omdbapi.com/?apikey=227f7057&'
       })
       .done(function(response) {
 	  

@@ -14,32 +14,12 @@ from app import db
 @app.route('/', methods=['GET', 'POST'])
 def main():
     movie = request.args.get('movie')
-    url = 'https://www.omdbapi.com/?apikey=227f7057&t=' + movie
+    url = '' + movie
     data = requests.get(url).json()
     return render_template('main.html', data=data, login=LoginForm(), signup=SignupForm(), question=QuestionForm(), answer=AnswerForm())
-    
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-	confirmation = write_user(request.form['username'], request.form['email'], request.form['pword'])
-	return confirmation
-    
-@app.route('/login', methods=['POST'])
-def login():
 
-	username = request.form.get('user')
-	password = request.form.get('pword')
-	
-	user = User.query.filter_by(username=username).first()
-	
-	if user is None or not user.check_password(password):
-		return jsonify({'login': 'invalid', 'username': 'none'})
-	
-	else:
-		login_user(user)
-		return jsonify({'login': 'valid', 'username': str(user.username)})
-
-@app.route('/logout', methods=['POST'])
-def logout():
-
-	logout_user()
-	return 'logged out'
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    movie = request.form.get('movie')
+    url = '/?movie=' + movie
+    return jsonify({"redirect": url})
