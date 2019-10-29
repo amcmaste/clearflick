@@ -56,8 +56,7 @@ def movie():
         entry = {'id': question.id, 'content': question.question_text, 'points': question.points, 'answers': inner}
         outer.append(entry)
 	
-    return jsonify([{'id': '1', 'content': 'Who directed it?', 'points': '100', 'answers': [{'id': '1', 'content': 'George Lucas', 'points': '100'}, {'id': '2', 'content': 'Steven Spielberg', 'points': '80'}, {'id': '3', 'content': 'Bob Sagat', 'points': '10'}]},
-                    {'id': '2', 'content': 'What is the plot?', 'points': '80', 'answers': [{'id': '1', 'content': 'It is about space.', 'points': '80'}, {'id': '2', 'content': 'It is about an Jedi.', 'points': '20'}]}])
+    return jsonify(outer)
                     
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -84,3 +83,24 @@ def logout():
 
 	logout_user()
 	return 'logged out'
+    
+@app.route('/add-question', methods=['GET'])
+def add_question():
+	user = request.args.get('user')
+	movie = request.args.get('movie')
+	question = request.args.get('question')
+	
+	userid = User.query.filter_by(username=user).first().id
+	movieid = Movie.query.filter_by(movie_title=movie).first().id
+	check_question = Question.query.filter_by(user_id=userid, movie_id=movieid, question_text=question).first()
+	
+	if check_question:
+		pass
+	else:
+		new_question = Question(user_id=userid, movie_id=movieid, question_text=question)
+		db.session.add(new_question)
+		db.session.commit()
+		
+	verify_question = Question.query.filter_by(user_id=userid, movie_id=movieid, question_text=question).first()
+
+	return str(verify_question.question_text)

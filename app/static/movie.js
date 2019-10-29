@@ -280,7 +280,7 @@ $(document).ready(function() {
   
   })
   
-  // Add Question Functionality
+  // Add Question Button Functionality
   .done(function() {
       
     $('#add-question-button').on('click', function(event) {
@@ -293,7 +293,7 @@ $(document).ready(function() {
   
   })
   
-  // Add Answer Functionality
+  // Add Answer Button Functionality
   .done(function() {
       
     $('.add-answer-button').on('click', function(event) {
@@ -301,6 +301,41 @@ $(document).ready(function() {
       $(this).siblings('.add-answer-form-container').css('display', 'inline-block');
       $(this).siblings('.add-answer-form-container').children('.add-answer-form').css('display', 'inline-block');
 	  $(this).addClass('d-none');
+  
+    });
+  
+  })
+  
+  // Add Question Functionality
+  .done(function() {
+      
+    $('#question-form-1').on('submit', function(event) {
+	
+      let user = $('#current-user').text();
+	  let movie = $('#title-text').text();
+	  let question = $('#question-form-contents-1').val();
+      
+      if (user == '') {
+        
+        alert('Please login to add a question!');
+      
+      } else {
+	  
+	    $.ajax({
+          data : {
+	    	  
+            user : user,
+	    	movie : movie,
+	    	question : question
+          
+	      },
+          type : 'GET',
+          url : '/add-question'
+        })
+      
+      }
+      
+      event.preventDefault();
   
     });
   
