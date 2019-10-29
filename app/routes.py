@@ -23,3 +23,38 @@ def search():
     movie = request.form.get('movie')
     url = '/?movie=' + movie
     return jsonify({"redirect": url})
+    
+@app.route('/movie', methods=['GET'])
+def movie():
+	#Un-pack variables
+    imdb = request.args.get('imdb')
+    title = request.args.get('title')
+	
+	#Check if movie is already in database
+    movie = Movie.query.filter_by(imdb_id=imdb).first()
+	
+	#If not, add movie to database
+    if movie:
+        pass
+    else:
+        movie = Movie(imdb_id=imdb, movie_title=title)
+        db.session.add(movie)
+        db.session.commit()
+    
+    #Pack and return Question data
+    movieid = Movie.query.filter_by(imdb_id=imdb).first().id
+    questions = Question.query.filter_by(movie_id=movieid).order_by(desc('points')).all()
+	
+    outer = []
+	
+    for question in questions:
+        answers = Answer.query.filter_by(movie_id=movieid, question_id=question.id).order_by(desc('points')).all()
+        inner = []
+        for answer in answers:
+            entry = {'id': answer.id, 'content': answer.answer_text, 'points': answer.points}
+            inner.append(entry)
+        entry = {'id': question.id, 'content': question.question_text, 'points': question.points, 'answers': inner}
+        outer.append(entry)
+	
+    return jsonify([{'id': '1', 'content': 'Who directed it?', 'points': '100', 'answers': [{'id': '1', 'content': 'George Lucas', 'points': '100'}, {'id': '2', 'content': 'Steven Spielberg', 'points': '80'}, {'id': '3', 'content': 'Bob Sagat', 'points': '10'}]},
+                    {'id': '2', 'content': 'What is the plot?', 'points': '80', 'answers': [{'id': '1', 'content': 'It is about space.', 'points': '80'}, {'id': '2', 'content': 'It is about an Jedi.', 'points': '20'}]}])

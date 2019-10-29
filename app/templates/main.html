@@ -51,6 +51,9 @@
               <img id="movie-box" src="{{ data.Poster }}" alt="movie cover" height="275" width="180"/>
           </div>
           <div id="movie-information-container">
+            <div id="movie-id-container" class='d-none'>
+                <span id="movie-id">{{ data.imdbID }}</span>
+            </div>
             <div id="movie-title-container">
                 <span id="title-text">{{ data.Title }}</span>
             </div>
@@ -89,5 +92,6 @@
     </div>
     <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
     <script type=text/javascript src="{{ url_for('static', filename='search.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='movie.js') }}"></script>
   </body>
 </html>
