@@ -187,6 +187,7 @@ $(document).ready(function() {
           $('#login-button').css('display', 'none');
           $('#signup-button').css('display', 'none');
           $('#logout-button').css('display', 'inline-block');
+          $('#current-user').html(response);
           
 	      alert("Your account has been created and you have been logged in.");
 	  	
@@ -231,6 +232,7 @@ $(document).ready(function() {
           $('#login-button').css('display', 'none');
           $('#signup-button').css('display', 'none');
           $('#logout-button').css('display', 'inline-block');
+          $('#current-user').html(response.username);
           
 	      alert("Your credentials have been confirmed, you will now be logged in.");
 	  	
@@ -266,6 +268,7 @@ $(document).ready(function() {
           $('#login-button').css('display', 'inline-block');
           $('#signup-button').css('display', 'inline-block');
           $('#logout-button').css('display', 'none');
+          $('#current-user').html('');
 	  
 	      alert("You have been logged out.");
 	  
