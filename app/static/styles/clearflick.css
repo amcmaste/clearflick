@@ -494,7 +494,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
+  height: 100%;
   margin-right: 5px;
 }
 
@@ -687,7 +688,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
+  height: 100%;
   margin-right: 5px;
 }
 
@@ -782,38 +784,6 @@ body {
 }
 
 /* questions-and-answers.css */
-#add-question-container {
-  flex: 1;
-}
-
-#add-question-form {
-  width: 100%;
-}
-
-#question-form-contents {
-  width: 100%;
-}
-
-#question-field {
-  width: 40vw;
-  height: 30vh;
-}
-
-#question-submit {
-  display: inline-block;
-  background-color: hsl(240, 100%, 15%);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 9px;
-  text-align: center;
-  font-weight: bold;
-  height: 34px;
-  width: 90px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 15px;
-}
 
 .add-answer-button {
   display: inline-block;
@@ -838,26 +808,60 @@ body {
 }
 
 .answer-form-contents {
-  width: 100%;
-}
-
-.answer-field {
   width: 40vw;
   height: 30vh;
 }
 
-.answer-submit {
+.answer-form-submit {
+  display: inline-block;
+  background-color: hsl(210, 100%, 40%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 10px;
+  text-align: center;
+  font-weight: bold;
+  height: 40px;
+  width: 120px;
+  margin-top: 20px;
+}
+
+.add-question-button {
+  display: inline-block;
+  background-color: hsl(210, 100%, 40%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 10px;
+  text-align: center;
+  font-weight: bold;
+  height: 40px;
+  width: 120px;
+}
+
+.add-question-container {
+  flex: 1;
+}
+
+.add-question-form {
+  width: 100%;
+}
+
+.question-form-contents {
+  width: 40vw;
+  height: 30vh;
+}
+
+.question-form-submit {
   display: inline-block;
   background-color: hsl(240, 100%, 15%);
   color: white;
   border: none;
   border-radius: 6px;
-  font-size: 9px;
+  font-size: 10px;
   text-align: center;
   font-weight: bold;
-  height: 34px;
-  width: 90px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 15px;
+  height: 40px;
+  width: 120px;
+  margin-top: 20px;
 }

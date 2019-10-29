@@ -1,6 +1,6 @@
 $(document).ready(function() {
   
-  // Start AJAX request
+  // AJAX Request
   $.ajax({
     data : {
 
@@ -11,13 +11,12 @@ $(document).ready(function() {
     type : 'GET',
     url : '/movie'
   })
+  // Load Questions and Answers
   .done(function(response) {
     
-    // Populate questions and answers
     let quest = $('#questions-general-outer-container');
     quest.html('');
-		
-    //Start pasted content (A)
+
     for (let i=0; i < response.length; i++) {
 
       let question = response[i];
@@ -65,8 +64,11 @@ $(document).ready(function() {
             <div class="answer-buttons-outer-container">
               <div class="add-answer-container">
                 <button class="add-answer-button">ADD ANSWER</button>
-                <div class="add-answer-form">
-                  {{  wtf.quick_form(answer)  }}
+                <div class="add-answer-form-container">
+                  <form id="answer-form-${i}" class="add-answer-form">
+                    <textarea id="answer-form-contents-${i}" class="form-control answer-form-contents" type="text" placeholder="Add answer..."></textarea>
+                    <button id="answer-form-submit-${i} type="submit" class="answer-form-submit">SUBMIT</button>
+                  </form>
                 </div>
               </div>
               <div class="show-more-answers-container">
@@ -128,6 +130,177 @@ $(document).ready(function() {
     
     };
     
+  })
+  // Navigation Button Functionality
+  .done(function() {
+      
+    $('#login-button').click(function() {
+      $('#popout-container').css('display', 'flex');
+      $('#login-form-container').css('display', 'inline-block');
+      $('#signup-form-container').css('display', 'none');
+    });
+    
+    $('#signup-button').click(function() {
+      $('#popout-container').css('display', 'flex');
+      $('#login-form-container').css('display', 'none');
+      $('#signup-form-container').css('display', 'inline-block');
+    });
+    
+    $('#home-button').click(function() {
+      $('#popout-container').css('display', 'none');
+      $('#login-form-container').css('display', 'none');
+      $('#signup-form-container').css('display', 'none');
+    });
+  
+  })
+
+// Register Functionality
+  .done(function() {
+      
+    $('#signup-form-contents').on('submit', function(event) {
+
+      $.ajax({
+        data : {
+          username : $('#signup-username').val(),
+          email : $('#email').val(),
+          pword : $('#signup-password').val()
+        },
+        type : 'POST',
+        url : '/register'
+      })
+	  .done(function(response) {
+      
+	    $('#signup-username').val('');
+	    $('#email').val('');
+	    $('#signup-password').val('');
+	    $('#verify').val('');
+	    
+	    if (response == 'exists') {
+          
+	  	  alert('Username or email already exists, please choose another.');
+	  	
+	    } else {
+          
+          $('#popout-container').css('display', 'none');
+          $('#login-form-container').css('display', 'none');
+          $('#signup-form-container').css('display', 'none');
+          $('#login-button').css('display', 'none');
+          $('#signup-button').css('display', 'none');
+          $('#logout-button').css('display', 'inline-block');
+          
+	      alert("Your account has been created and you have been logged in.");
+	  	
+	    }
+	  
+	  });
+
+	event.preventDefault();
+
+    });
+  })
+    
+  //Login Functionality
+  .done(function() {
+      
+    $('#login-form-contents').on('submit', function(event) {
+
+      $.ajax({
+        data : {
+	  	  
+        user : $('#login-username').val(),
+	  	pword : $('#login-password').val()
+        
+	    },
+        type : 'POST',
+        url : '/login'
+      })
+	  .done(function(response) {
+         
+	    $('#login-username').val('');
+	    $('#login-password').val('');
+	    
+	    if (response.login == 'invalid') {
+          
+	  	  alert('That is not a valid username / password combination. Please try again.');
+	  	
+	    } else if (response.login == 'valid') {
+            
+          $('#popout-container').css('display', 'none');
+          $('#login-form-container').css('display', 'none');
+          $('#signup-form-container').css('display', 'none');
+          $('#login-button').css('display', 'none');
+          $('#signup-button').css('display', 'none');
+          $('#logout-button').css('display', 'inline-block');
+          
+	      alert("Your credentials have been confirmed, you will now be logged in.");
+	  	
+	    }
+	  
+	  });
+      
+	  event.preventDefault();
+    
+    })
+
+  })
+  
+  //Logout Functionality
+  .done(function() {
+      
+    $('#logout-button').on('click', function(event) {
+
+      $.ajax({
+        data : {
+	  	  
+          user : 'logout'
+        
+	    },
+        type : 'POST',
+        url : '/logout'
+      })
+	  .done(function(response) {
+          
+          $('#popout-container').css('display', 'none');
+          $('#login-form-container').css('display', 'none');
+          $('#signup-form-container').css('display', 'none');
+          $('#login-button').css('display', 'inline-block');
+          $('#signup-button').css('display', 'inline-block');
+          $('#logout-button').css('display', 'none');
+	  
+	      alert("You have been logged out.");
+	  
+	  });
+
+	event.preventDefault();
+
+    });
+  
+  })
+  
+  // Add Question Functionality
+  .done(function() {
+      
+    $('#add-question-button').on('click', function(event) {
+
+      $(this).after($('#add-question-form-container'));
+	  $('#add-question-form-container').removeClass('d-none');
+	  $(this).addClass('d-none');
+  
+    });
+  
+  })
+  
+  // Add Answer Functionality
+  .done(function() {
+      
+    $('.add-answer-button').on('click', function(event) {
+
+      $(this).siblings('.add-answer-form-container').css('display', 'inline-block');
+      $(this).siblings('.add-answer-form-container').children('.add-answer-form').css('display', 'inline-block');
+	  $(this).addClass('d-none');
+  
+    });
+  
   })
 
 });

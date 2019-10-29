@@ -58,3 +58,29 @@ def movie():
 	
     return jsonify([{'id': '1', 'content': 'Who directed it?', 'points': '100', 'answers': [{'id': '1', 'content': 'George Lucas', 'points': '100'}, {'id': '2', 'content': 'Steven Spielberg', 'points': '80'}, {'id': '3', 'content': 'Bob Sagat', 'points': '10'}]},
                     {'id': '2', 'content': 'What is the plot?', 'points': '80', 'answers': [{'id': '1', 'content': 'It is about space.', 'points': '80'}, {'id': '2', 'content': 'It is about an Jedi.', 'points': '20'}]}])
+                    
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+	confirmation = write_user(request.form['username'], request.form['email'], request.form['pword'])
+	return confirmation
+    
+@app.route('/login', methods=['POST'])
+def login():
+
+	username = request.form.get('user')
+	password = request.form.get('pword')
+	
+	user = User.query.filter_by(username=username).first()
+	
+	if user is None or not user.check_password(password):
+		return jsonify({'login': 'invalid', 'username': 'none'})
+	
+	else:
+		login_user(user)
+		return jsonify({'login': 'valid', 'username': str(user.username)})
+
+@app.route('/logout', methods=['POST'])
+def logout():
+
+	logout_user()
+	return 'logged out'
