@@ -104,3 +104,26 @@ def add_question():
 	verify_question = Question.query.filter_by(user_id=userid, movie_id=movieid, question_text=question).first()
 
 	return str(verify_question.question_text)
+    
+@app.route('/add-answer', methods=['GET'])
+def add_answer():
+	user = request.args.get('user')
+	movie = request.args.get('movie')
+	question = request.args.get('question')
+	answer = request.args.get('answer')
+	
+	userid = User.query.filter_by(username=user).first().id
+	movieid = Movie.query.filter_by(movie_title=movie).first().id
+	questionid = Question.query.filter_by(movie_id=movieid, question_text=question).first().id
+	check_answer = Answer.query.filter_by(user_id=userid, movie_id=movieid, question_id=questionid, answer_text=answer).first()
+	
+	if check_answer:
+		pass
+	else:
+		new_answer = Answer(user_id=userid, movie_id=movieid, question_id=questionid, answer_text=answer)
+		db.session.add(new_answer)
+		db.session.commit()
+		
+	verify_answer = Answer.query.filter_by(user_id=userid, movie_id=movieid, question_id=questionid, answer_text=answer).first()
+
+	return str(verify_answer.answer_text)

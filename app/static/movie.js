@@ -341,4 +341,41 @@ $(document).ready(function() {
   
   })
 
+  // Add Answer Functionality
+  .done(function() {
+      
+    $('.add-answer-form').on('submit', function(event) {
+	
+      let user = $('#current-user').text();
+	  let movie = $('#title-text').text();
+	  let question = $(this).parent().parent().parent().siblings('.question-specific-inner-container').children('.question-specific-right-container').children('.question-specific-content-container').children('span').text();
+	  let answer = $(this).children('.answer-form-contents').val();
+      
+      if (user == '') {
+        
+        alert('Please login to add a question!');
+      
+      } else {
+	  
+	    $.ajax({
+          data : {
+	    	  
+            user : user,
+	    	movie : movie,
+	    	question : question,
+	    	answer : answer
+          
+	      },
+          type : 'GET',
+          url : '/add-answer'
+        })
+      
+      }
+      
+      event.preventDefault();
+        
+    })
+  
+  })
+
 });
