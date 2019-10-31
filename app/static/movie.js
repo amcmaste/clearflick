@@ -55,8 +55,8 @@ $(document).ready(function() {
           <div class="question-specific-inner-container">
             <div class="question-specific-left-container">
               <div class="question-specific-arrow-container">
-                <i class="fa fa-arrow-circle-up"></i>
-			    <i class="fa fa-arrow-circle-down"></i>
+                <i class="fa fa-arrow-circle-up qua"></i>
+			    <i class="fa fa-arrow-circle-down qda"></i>
               </div>
               <div class="question-specific-block-container">
                 <span>Q</span>
@@ -119,8 +119,8 @@ $(document).ready(function() {
           <div class="answer-specific-inner-container">
             <div class="answer-specific-left-container">
               <div class="answer-specific-arrow-container">
-                <i class="fa fa-arrow-circle-up"></i>
-                <i class="fa fa-arrow-circle-down"></i>
+                <i class="fa fa-arrow-circle-up aua"></i>
+                <i class="fa fa-arrow-circle-down ada"></i>
               </div>
               <div class="answer-specific-block-container">
                 <span>A</span>
@@ -335,6 +335,165 @@ $(document).ready(function() {
   
     });
   
+  })
+  
+  // Add Question Voting Functionality
+  .done(function() {
+      
+    $('.qua').on('click', function(event) {
+	
+	      let reference = $(this).parent().parent().parent();
+
+          $.ajax({
+            data : {
+        
+		      user : $('#current-user').text(),
+		      movie : $('#title-text').text(),
+		      content : reference.children('.question-specific-right-container').children('.question-specific-content-container').children('span').text()
+      
+	        },
+            type : 'POST',
+            url : '/upvote-question'
+          }).done(function(response) {
+	  
+	        reference.children('.question-specific-right-container').children('.question-specific-statistics-container').children('.question-specific-statistics-container-right').children('.question-specific-points').children('span').html(response[1] + 'pts');
+	  
+	        if (response[2] == 'Y') {
+		  
+	          alert('Your vote has been counted!')
+		
+	        } else {
+		  
+	          alert('Sorry, you already voted on this question!')
+		
+	        }
+	  
+	      }).fail(function() {
+	  
+	        alert('Failure!')
+    
+	      });
+        });
+  
+  })
+  
+  .done(function() {
+      
+    $('.qda').on('click', function(event) {
+	
+	      let reference = $(this).parent().parent().parent();
+
+          $.ajax({
+            data : {
+        
+		      user : $('#current-user').text(),
+		      movie : $('#title-text').text(),
+		      content : reference.children('.question-specific-right-container').children('.question-specific-content-container').children('span').text()
+      
+	        },
+            type : 'POST',
+            url : '/downvote-question'
+          }).done(function(response) {
+	  
+	        reference.children('.question-specific-right-container').children('.question-specific-statistics-container').children('.question-specific-statistics-container-right').children('.question-specific-points').children('span').html(response[1] + 'pts');
+	  
+	        if (response[2] == 'Y') {
+		  
+	          alert('Your vote has been counted!')
+		
+	        } else {
+		  
+	          alert('Sorry, you already voted on this question!')
+		
+	        }
+	  
+	      }).fail(function() {
+	  
+	        alert('Failure!')
+    
+	      });
+        });
+  
+  })
+  
+  .done(function() {
+      
+    $('.aua').on('click', function(event) {
+	
+	      let reference = $(this).parent().parent().parent();
+
+          $.ajax({
+            data : {
+        
+		      user : $('#current-user').text(),
+		      movie : $('#title-text').text(),
+			  quest: reference.parent().siblings('.question-specific-inner-container').children('.question-specific-right-container').children('.question-specific-content-container').children('span').text(),
+			  ans : reference.children('.answer-specific-right-container').children('.answer-specific-content-container').children('span').text()
+      
+	        },
+            type : 'POST',
+            url : '/upvote-answer'
+          }).done(function(response) {
+	  
+	        reference.children('.answer-specific-right-container').children('.answer-specific-statistics-container').children('.answer-specific-statistics-container-right').children('.answer-specific-points').html(response[1] + 'pts');
+	  
+	        if (response[2] == 'Y') {
+		  
+	          alert('Your vote has been counted!')
+		
+	        } else {
+		  
+	          alert('Sorry, you already voted on this answer!')
+		
+	        }
+	  
+	      }).fail(function() {
+	  
+	        alert('Failure!')
+    
+	      });
+        });
+    
+  })
+  
+  .done(function() {
+      
+    $('.ada').on('click', function(event) {
+	
+	      let reference = $(this).parent().parent().parent();
+
+          $.ajax({
+            data : {
+        
+		      user : $('#current-user').text(),
+		      movie : $('#title-text').text(),
+			  quest: reference.parent().siblings('.question-specific-inner-container').children('.question-specific-right-container').children('.question-specific-content-container').children('span').text(),
+			  ans : reference.children('.answer-specific-right-container').children('.answer-specific-content-container').children('span').text()
+      
+	        },
+            type : 'POST',
+            url : '/downvote-answer'
+          }).done(function(response) {
+	  
+	        reference.children('.answer-specific-right-container').children('.answer-specific-statistics-container').children('.answer-specific-statistics-container-right').children('.answer-specific-points').html(response[1] + 'pts');
+	  
+	        if (response[2] == 'Y') {
+		  
+	          alert('Your vote has been counted!')
+		
+	        } else {
+		  
+	          alert('Sorry, you already voted on this answer!')
+		
+	        }
+	  
+	      }).fail(function() {
+	  
+	        alert('Failure!')
+    
+	      });
+        });
+    
   })
   
   // Add Question Functionality

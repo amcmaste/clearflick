@@ -14,7 +14,7 @@ from app import db
 @app.route('/', methods=['GET', 'POST'])
 def main():
     movie = request.args.get('movie')
-    url = '' +'t=' + movie
+    url = 'https://www.omdbapi.com/?apikey=227f7057&' +'t=' + movie
     data = requests.get(url).json()
     return render_template('main.html', data=data, login=LoginForm(), signup=SignupForm(), question=QuestionForm(), answer=AnswerForm())
 
@@ -60,8 +60,10 @@ def movie():
                     
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-	confirmation = write_user(request.form['username'], request.form['email'], request.form['pword'])
-	return confirmation
+    write = write_user(request.form['username'], request.form['email'], request.form['pword'])
+    user = User.query.filter_by(username=request.form['username']).first()
+    login_user(user)
+    return user.username
     
 @app.route('/login', methods=['POST'])
 def login():
@@ -134,3 +136,147 @@ def check():
     return jsonify({'user': current_user.username})
   else:
     return ''
+    
+@app.route('/upvote-question', methods=['POST'])
+def upvote_question():
+    user = request.form.get('user')
+    movie = request.form.get('movie')
+    content = request.form.get('content')
+	
+    userid = User.query.filter_by(username=user).first().id
+    movieid = Movie.query.filter_by(movie_title=movie).first().id
+    questionid = Question.query.filter_by(movie_id=movieid, question_text=content).first().id
+	
+    user = User.query.filter_by(id=userid).first()
+    movie = Movie.query.filter_by(id=movieid).first()
+    question = Question.query.filter_by(id=questionid).first()
+    vote = QuestionVotes.query.filter_by(user_id=userid, question_id=questionid).first()
+		
+    if not question.points:
+        points = 0
+    else:
+        points = question.points
+	
+    if vote == None:
+        vote = QuestionVotes(user_id=userid, question_id=questionid)
+        db.session.add(vote)
+        db.session.commit()
+        question.points = points + 10
+        db.session.commit()
+        counted = 'Y'
+    else:
+        counted = 'N'
+	
+    new = Question.query.filter_by(id=questionid).first()
+    return jsonify([content, new.points, counted])
+	
+@app.route('/downvote-question', methods=['POST'])
+def downvote_question():
+	user = request.form.get('user')
+	movie = request.form.get('movie')
+	content = request.form.get('content')
+	
+	userid = User.query.filter_by(username=user).first().id
+	movieid = Movie.query.filter_by(movie_title=movie).first().id
+	questionid = Question.query.filter_by(movie_id=movieid, question_text=content).first().id
+	
+	user = User.query.filter_by(id=userid).first()
+	movie = Movie.query.filter_by(id=movieid).first()
+	question = Question.query.filter_by(id=questionid).first()
+	vote = QuestionVotes.query.filter_by(user_id=userid, question_id=questionid).first()
+		
+	if not question.points:
+		points = 0
+	else:
+		points = question.points
+	
+	if vote == None:
+		vote = QuestionVotes(user_id=userid, question_id=questionid)
+		db.session.add(vote)
+		db.session.commit()
+		if points > 10:
+			question.points = points - 10
+		else:
+			question.points = 0
+		db.session.commit()
+		counted = 'Y'
+	else:
+		counted = 'N'
+	
+	new = Question.query.filter_by(id=questionid).first()
+	return jsonify([content, new.points, counted])
+	
+@app.route('/upvote-answer', methods=['POST'])
+def upvote_answer():
+	user = request.form.get('user')
+	movie = request.form.get('movie')
+	question = request.form.get('quest')
+	content = request.form.get('ans')
+	
+	userid = User.query.filter_by(username=user).first().id
+	movieid = Movie.query.filter_by(movie_title=movie).first().id
+	questionid = Question.query.filter_by(movie_id=movieid, question_text=question).first().id
+	answerid = Answer.query.filter_by(movie_id=movieid, question_id=questionid, answer_text=content).first().id
+	
+	user = User.query.filter_by(id=userid).first()
+	movie = Movie.query.filter_by(id=movieid).first()
+	question = Question.query.filter_by(id=questionid).first()
+	answer = Answer.query.filter_by(id=answerid).first()
+	vote = AnswerVotes.query.filter_by(user_id=userid, answer_id=answerid).first()
+		
+	if not answer.points:
+		points = 0
+	else:
+		points = answer.points
+	
+	if vote == None:
+		vote = AnswerVotes(user_id=userid, answer_id=answerid)
+		db.session.add(vote)
+		db.session.commit()
+		answer.points = points + 10
+		db.session.commit()
+		counted = 'Y'
+	else:
+		counted = 'N'
+	
+	new = Answer.query.filter_by(id=answerid).first()
+	return jsonify([content, new.points, counted])
+	
+@app.route('/downvote-answer', methods=['POST'])
+def downvote_answer():
+	user = request.form.get('user')
+	movie = request.form.get('movie')
+	question = request.form.get('quest')
+	content = request.form.get('ans')
+	
+	userid = User.query.filter_by(username=user).first().id
+	movieid = Movie.query.filter_by(movie_title=movie).first().id
+	questionid = Question.query.filter_by(movie_id=movieid, question_text=question).first().id
+	answerid = Answer.query.filter_by(movie_id=movieid, question_id=questionid, answer_text=content).first().id
+	
+	user = User.query.filter_by(id=userid).first()
+	movie = Movie.query.filter_by(id=movieid).first()
+	question = Question.query.filter_by(id=questionid).first()
+	answer = Answer.query.filter_by(id=answerid).first()
+	vote = AnswerVotes.query.filter_by(user_id=userid, answer_id=answerid).first()
+		
+	if not answer.points:
+		points = 0
+	else:
+		points = answer.points
+	
+	if vote == None:
+		vote = AnswerVotes(user_id=userid, answer_id=answerid)
+		db.session.add(vote)
+		db.session.commit()
+		if points > 10:
+			answer.points = points - 10
+		else:
+			answer.points = 0
+		db.session.commit()
+		counted = 'Y'
+	else:
+		counted = 'N'
+	
+	new = Answer.query.filter_by(id=answerid).first()
+	return jsonify([content, new.points, counted])
