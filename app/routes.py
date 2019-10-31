@@ -14,7 +14,7 @@ from app import db
 @app.route('/', methods=['GET', 'POST'])
 def main():
     movie = request.args.get('movie')
-    url = '' +'t=' + movie
+    url = 'https://www.omdbapi.com/?apikey=227f7057&' +'t=' + movie
     data = requests.get(url).json()
     return render_template('main.html', data=data, login=LoginForm(), signup=SignupForm(), question=QuestionForm(), answer=AnswerForm())
 
@@ -127,3 +127,10 @@ def add_answer():
 	verify_answer = Answer.query.filter_by(user_id=userid, movie_id=movieid, question_id=questionid, answer_text=answer).first()
 
 	return str(verify_answer.answer_text)
+    
+@app.route('/check', methods=['POST'])
+def check():
+  if current_user.is_authenticated:
+    return jsonify({'user': current_user.username})
+  else:
+    return ''

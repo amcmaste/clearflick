@@ -844,6 +844,7 @@ body {
 }
 
 .add-question-form {
+  display: none;
   width: 100%;
 }
 
