@@ -7,10 +7,6 @@ body {
   align-items: center;
 }
 
-.control-label {
-  display: none;
-}
-
 .nav-button-light {
   display: inline-block;
   background-color: hsl(210, 100%, 40%);
