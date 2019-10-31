@@ -17,12 +17,26 @@ $(document).ready(function() {
       $('#login-button').css('display', 'none');
       $('#signup-button').css('display', 'none');
       $('#logout-button').css('display', 'inline-block');
+      
+      $('.qua').css('display', 'inline-block');
+      $('.qda').css('display', 'inline-block');
+      $('.aua').css('display', 'inline-block');
+      $('.ada').css('display', 'inline-block');
+      $('.add-answer-button').css('display', 'inline-block');
+      $('#add-question-button').css('display', 'inline-block');
           
     } else {
       $('#login-button').css('display', 'inline-block');
       $('#signup-button').css('display', 'inline-block');
       $('#logout-button').css('display', 'none');
       $('#current-user').html('');
+      
+      $('.qua').css('display', 'inline-block');
+      $('.qda').css('display', 'inline-block');
+      $('.aua').css('display', 'inline-block');
+      $('.ada').css('display', 'inline-block');
+      $('.add-answer-button').css('display', 'inline-block');
+      $('#add-question-button').css('display', 'inline-block');
     }
     
   })  
@@ -201,6 +215,7 @@ $(document).ready(function() {
 	    $('#email').val('');
 	    $('#signup-password').val('');
 	    $('#verify').val('');
+        
 	    
 	    if (response == 'exists') {
           
@@ -215,6 +230,13 @@ $(document).ready(function() {
           $('#signup-button').css('display', 'none');
           $('#logout-button').css('display', 'inline-block');
           $('#current-user').html(response);
+          
+          $('.qua').css('display', 'inline-block');
+          $('.qda').css('display', 'inline-block');
+          $('.aua').css('display', 'inline-block');
+          $('.ada').css('display', 'inline-block');
+          $('.add-answer-button').css('display', 'inline-block');
+          $('#add-question-button').css('display', 'inline-block');
           
 	      alert("Your account has been created and you have been logged in.");
 	  	
@@ -261,6 +283,13 @@ $(document).ready(function() {
           $('#logout-button').css('display', 'inline-block');
           $('#current-user').html(response.username);
           
+          $('.qua').css('display', 'inline-block');
+          $('.qda').css('display', 'inline-block');
+          $('.aua').css('display', 'inline-block');
+          $('.ada').css('display', 'inline-block');
+          $('.add-answer-button').css('display', 'inline-block');
+          $('#add-question-button').css('display', 'inline-block');
+          
 	      alert("Your credentials have been confirmed, you will now be logged in.");
 	  	
 	    }
@@ -296,6 +325,13 @@ $(document).ready(function() {
           $('#signup-button').css('display', 'inline-block');
           $('#logout-button').css('display', 'none');
           $('#current-user').html('');
+          
+          $('.qua').css('display', 'none');
+          $('.qda').css('display', 'none');
+          $('.aua').css('display', 'none');
+          $('.ada').css('display', 'none');
+          $('.add-answer-button').css('display', 'none');
+          $('#add-question-button').css('display', 'none');
 	  
 	      alert("You have been logged out.");
 	  
