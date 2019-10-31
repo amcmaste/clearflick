@@ -1,0 +1,66 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/home.css">
+  </head>
+  <body>
+    <div id="page-background-container">
+      <div id="page-header-container">
+        <div id="header-left-container">
+          <div id="header-logo-container">
+            <img id="website-logo" src="{{ url_for('static', filename='logo.jpg') }}" alt="clearflick logo">
+          </div>
+        </div>
+        <div id="header-right-container">
+          <div id="header-search-container">
+            <input id="search-field" class="form-control" type="text" placeholder="Search...">
+          </div>
+          <div id="header-button-container">
+            <button id="logout-button" class="nav-button-light">LOGOUT</button>
+            <button id="login-button" class="nav-button-light">LOGIN</button>
+            <button id="signup-button" class="nav-button-light">SIGNUP</button>
+            <button id="home-button" class="nav-button-dark">HOME</button>
+          </div>
+          <span id="current-user" class="d-none"></span>
+        </div>
+      </div>
+      <div id="popout-container">
+        <div id="popout-form">
+          <div id="popout-text-box">
+            <span id="welcome-text">Welcome to Clearflick! Please Login or Signup above!</span>
+          </div>
+          <div id="login-form-container">
+            <div id="login-text">
+              <span class="popout-text">Please Login Below:</span>
+            </div>
+            {{  wtf.quick_form(login, id="login-form-contents") }}
+          </div>
+          <div id="signup-form-container">
+            <div id="singup-text">
+              <span class="popout-text">Please Signup Below:</span>
+            </div>
+            {{  wtf.quick_form(signup, id="signup-form-contents") }}
+          </div>
+        </div>
+      </div>
+      <div id="page-main-container">
+        <div id="top-movies-container">
+          <div id="top-movies-title">
+            <span id="top-movies-title-text"></div>
+          </div>
+          <div id="top-movies-specific-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='search.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='movie.js') }}"></script>
+  </body>
+</html>

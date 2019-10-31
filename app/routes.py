@@ -11,6 +11,10 @@ from app.models import User, Movie, Question, Answer, QuestionVotes, AnswerVotes
 from app import db
 
 #Route defintions
+@app.route('/home', methods=['GET'])
+def home():
+    return render_template('home.html', login=LoginForm(), signup=SignupForm())
+    
 @app.route('/', methods=['GET', 'POST'])
 def main():
     movie = request.args.get('movie')
