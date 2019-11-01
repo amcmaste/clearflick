@@ -1,46 +1,5 @@
 $(document).ready(function() {
   
-  // Check Login Status
-  $.ajax({
-        
-    type : 'POST',
-    url : '/check'
-    
-  })
-  .done(function(response) {
-        
-    let currentuser = $('#current-user');
-        
-    currentuser.html(response.user);
-      
-    if (response.user) {
-      $('#login-button').css('display', 'none');
-      $('#signup-button').css('display', 'none');
-      $('#logout-button').css('display', 'inline-block');
-      
-      $('.qua').css('display', 'inline-block');
-      $('.qda').css('display', 'inline-block');
-      $('.aua').css('display', 'inline-block');
-      $('.ada').css('display', 'inline-block');
-      $('.add-answer-button').css('display', 'inline-block');
-      $('#add-question-button').css('display', 'inline-block');
-          
-    } else {
-      $('#login-button').css('display', 'inline-block');
-      $('#signup-button').css('display', 'inline-block');
-      $('#logout-button').css('display', 'none');
-      $('#current-user').html('');
-      
-      $('.qua').css('display', 'inline-block');
-      $('.qda').css('display', 'inline-block');
-      $('.aua').css('display', 'inline-block');
-      $('.ada').css('display', 'inline-block');
-      $('.add-answer-button').css('display', 'inline-block');
-      $('#add-question-button').css('display', 'inline-block');
-    }
-    
-  })  
-  
   // AJAX Request
   $.ajax({
     data : {
@@ -192,7 +151,20 @@ $(document).ready(function() {
       $('#login-form-container').css('display', 'none');
       $('#signup-form-container').css('display', 'none');
     });
-  
+    
+    $('#home-button').click(function() {
+      $.ajax({
+        type : 'GET',
+        url : '/homepage'
+        })
+        .done(function(response) {
+	  
+          if (response.redirect) {
+            window.location.href = response.redirect;
+          }
+      
+	    })
+    });
   })
 
 // Register Functionality
@@ -642,6 +614,50 @@ $(document).ready(function() {
       
       event.preventDefault();
         
+    })
+  
+  })
+  
+  .done(function() {
+    // Check Login Status
+    $.ajax({
+          
+      type : 'POST',
+      url : '/check'
+      
+    })
+    .done(function(response) {
+          
+      let currentuser = $('#current-user');
+          
+      currentuser.html(response.user);
+        
+      if (response.user) {
+        $('#login-button').css('display', 'none');
+        $('#signup-button').css('display', 'none');
+        $('#logout-button').css('display', 'inline-block');
+        
+        $('.qua').css('display', 'inline-block');
+        $('.qda').css('display', 'inline-block');
+        $('.aua').css('display', 'inline-block');
+        $('.ada').css('display', 'inline-block');
+        $('.add-answer-button').css('display', 'inline-block');
+        $('#add-question-button').css('display', 'inline-block');
+            
+      } else {
+        $('#login-button').css('display', 'inline-block');
+        $('#signup-button').css('display', 'inline-block');
+        $('#logout-button').css('display', 'none');
+        $('#current-user').html('');
+        
+        $('.qua').css('display', 'none');
+        $('.qda').css('display', 'none');
+        $('.aua').css('display', 'none');
+        $('.ada').css('display', 'none');
+        $('.add-answer-button').css('display', 'none');
+        $('#add-question-button').css('display', 'none');
+      }
+      
     })
   
   })

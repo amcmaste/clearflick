@@ -11,6 +11,11 @@ from app.models import User, Movie, Question, Answer, QuestionVotes, AnswerVotes
 from app import db
 
 #Route defintions
+@app.route('/homepage', methods=['GET'])
+def homepage():
+    url = '/home'
+    return jsonify({"redirect": url})
+    
 @app.route('/home', methods=['GET'])
 def home():
     return render_template('home.html', login=LoginForm(), signup=SignupForm())

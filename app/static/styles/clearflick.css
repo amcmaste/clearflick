@@ -44,6 +44,7 @@ body {
   align-items: center;
   background-color: hsl(240, 20%, 95%);
   width: 100vw;
+  min-height: 100vh;
 }
 
 #page-header-container {
@@ -487,7 +488,7 @@ body {
 }
 
 .show-more-questions-container {
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-start;
@@ -681,7 +682,7 @@ body {
 }
 
 .show-more-answers-container {
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-start;
@@ -887,4 +888,10 @@ body {
 
 #add-question-button {
 
+}
+
+/* home.css */
+
+#popout-text-box {
+  display: none;
 }
