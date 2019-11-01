@@ -1,5 +1,6 @@
 #Imports
 import os
+import datetime
 import requests
 from flask import render_template, request, redirect, url_for, jsonify
 from flask_login import current_user, login_user, logout_user
@@ -23,7 +24,7 @@ def home():
 @app.route('/', methods=['GET', 'POST'])
 def main():
     movie = request.args.get('movie')
-    url = '' +'t=' + movie
+    url = 'https://www.omdbapi.com/?apikey=227f7057&' +'t=' + movie
     data = requests.get(url).json()
     return render_template('main.html', data=data, login=LoginForm(), signup=SignupForm(), question=QuestionForm(), answer=AnswerForm())
 
@@ -60,9 +61,9 @@ def movie():
         answers = Answer.query.filter_by(movie_id=movieid, question_id=question.id).order_by(desc('points')).all()
         inner = []
         for answer in answers:
-            entry = {'id': answer.id, 'content': answer.answer_text, 'points': answer.points}
+            entry = {'id': answer.id, 'user': User.query.filter_by(id=answer.user_id).first().username, 'time': answer.create_datetime.strftime("%c"), 'content': answer.answer_text, 'points': answer.points}
             inner.append(entry)
-        entry = {'id': question.id, 'content': question.question_text, 'points': question.points, 'answers': inner}
+        entry = {'id': question.id, 'user': User.query.filter_by(id=question.user_id).first().username, 'time': question.create_datetime.strftime("%c"), 'content': question.question_text, 'points': question.points, 'answers': inner}
         outer.append(entry)
 	
     return jsonify(outer)
@@ -289,3 +290,17 @@ def downvote_answer():
 	
 	new = Answer.query.filter_by(id=answerid).first()
 	return jsonify([content, new.points, counted])
+    
+@app.route('/top', methods=['POST'])
+def top():
+    movies = Movie.query.order_by(desc('create_datetime')).limit(3).all()
+    
+    data = []
+    
+    for movie in movies:
+        title = movie.movie_title
+        url = 'https://www.omdbapi.com/?apikey=227f7057&' +'t=' + title
+        item = requests.get(url).json()
+        data.append({'title': item['Title'], 'poster': item['Poster'], 'url': url_for('main') + item['Title']})
+        
+    return jsonify(data)

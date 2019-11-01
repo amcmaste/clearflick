@@ -42,18 +42,18 @@ $(document).ready(function() {
               <div class="question-specific-statistics-container">
                 <div class="question-specific-statistics-container-left">
                   <div class="question-specific-user-id">
-                    <span>INSERT USER</span>
+                    <span>${question.user}</span>
                   </div>
                   <div class="question-specific-post-date">
-                    <span>INSERT DATE</span>
+                    <span>${question.time}</span>
                   </div>
                 </div>
                 <div class="question-specific-statistics-container-right">
                   <div class="question-specific-top-question">
-                    <span>INSERT TOP</span>
+                    <span id="top-question-${i}"></span>
                   </div>
                   <div class="question-specific-points">
-                    <span>${question.points}pts</span>
+                    <span class="points-container">${question.points}pts</span>
                   </div>
                 </div>
               </div>
@@ -79,6 +79,8 @@ $(document).ready(function() {
         `
         
       );
+      
+      $('#top-question-0').text('TOP QUESTION');
         
       let ans = $('#answers-general-outer-container-'+i);
 		  
@@ -106,18 +108,18 @@ $(document).ready(function() {
               <div class="answer-specific-statistics-container">
                 <div class="answer-specific-statistics-container-left">
                   <div class="answer-specific-user-id">
-                    <span>INSERT USER</span>
+                    <span>${answer.user}</span>
                   </div>
                   <div class="answer-specific-post-date">
-                    <span>INSERT DATE</span>
+                    <span>${answer.time}</span>
                   </div>
                 </div>
                 <div class="answer-specific-statistics-container-right">
                   <div class="answer-specific-top-answer">
-                    <span>INSERT TOP</span>
+                    <span class="top-answer-${j}"></span>
                   </div>
                   <div class="answer-specific-points">
-                    <span>${answer.points}pts</span>
+                    <span class="points-container">${answer.points}pts</span>
                   </div>
                 </div>
               </div>
@@ -125,8 +127,11 @@ $(document).ready(function() {
           </div>
           `
 			
-        );			
+        );
+        
       }
+      
+      $('.top-answer-0').text('TOP ANSWER');
     
     };
     
@@ -165,6 +170,21 @@ $(document).ready(function() {
       
 	    })
     });
+    
+    $('#website-logo').click(function() {
+      $.ajax({
+        type : 'GET',
+        url : '/homepage'
+        })
+        .done(function(response) {
+	  
+          if (response.redirect) {
+            window.location.href = response.redirect;
+          }
+      
+	    })
+    });
+    
   })
 
 // Register Functionality

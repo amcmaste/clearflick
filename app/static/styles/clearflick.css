@@ -886,12 +886,57 @@ body {
 
 }
 
+.points-container {
+  text-align: right;
+  width: 40px;
+}
+
 #add-question-button {
 
 }
 
 /* home.css */
 
+.movie-box {
+  border-radius: 4px;
+}
+
 #popout-text-box {
   display: none;
+}
+
+#top-movies-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
+  margin-top: 30px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+#top-movies-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
+  margin-top: 30px;
+  border-radius: 8px;
+  background-color: white;
+  width: 680px;
+  padding: 30px;
+}
+
+#top-movies-specific-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 680px;
+  height: 340px;
+  padding: 30px;
+}
+
+.interior-image {
+  border-radius: 4px;
 }

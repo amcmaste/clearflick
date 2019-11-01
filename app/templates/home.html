@@ -50,17 +50,22 @@
         </div>
       </div>
       <div id="page-main-container">
-        <div id="top-movies-container">
-          <div id="top-movies-title">
-            <span id="top-movies-title-text"></div>
-          </div>
-          <div id="top-movies-specific-container">
-          </div>
+        <div id="top-movies-title">
+          <div id="top-movies-text">
+            <p><b>Welcome to Clearflick!</b></p>
+            <span>1) Select a movie from the search bar above.</span><br>
+            <span>2) Select a movie from the "Recent Additions" section below.</span><br>
+            <span>3) Login or Signup to start adding or answering movie questions!</span><br>
         </div>
       </div>
+      <div id="top-movies-container">
+          <div id="top-movies-specific-container">
+          </div>
+      </div>
     </div>
-    <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
     <script type=text/javascript src="{{ url_for('static', filename='search.js') }}"></script>
     <script type=text/javascript src="{{ url_for('static', filename='movie.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='home.js') }}"></script>
   </body>
 </html>
