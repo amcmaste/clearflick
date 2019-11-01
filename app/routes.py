@@ -24,9 +24,12 @@ def home():
 @app.route('/', methods=['GET', 'POST'])
 def main():
     movie = request.args.get('movie')
-    url = 'https://www.omdbapi.com/?apikey=227f7057&' +'t=' + movie
-    data = requests.get(url).json()
-    return render_template('main.html', data=data, login=LoginForm(), signup=SignupForm(), question=QuestionForm(), answer=AnswerForm())
+    if movie:
+        url = 'https://www.omdbapi.com/?apikey=227f7057&' +'t=' + movie
+        data = requests.get(url).json()
+        return render_template('main.html', data=data, login=LoginForm(), signup=SignupForm(), question=QuestionForm(), answer=AnswerForm())
+    else:
+        return redirect(url_for('home'))
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
